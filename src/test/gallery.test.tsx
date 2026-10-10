@@ -1,12 +1,18 @@
 import { render, screen } from '@testing-library/react';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { Gallery } from '../components/sections/Gallery';
 import { SCREENSHOTS } from '../content/screenshots';
 
 describe('screenshot gallery', () => {
-  it('ships with an empty manifest and shows the pending panel', () => {
-    expect(SCREENSHOTS).toHaveLength(0);
-    render(<Gallery />);
+  it('the shipped manifest lists real files that exist in public/screenshots', () => {
+    expect(SCREENSHOTS.length).toBeGreaterThan(0);
+    for (const s of SCREENSHOTS) expect(existsSync(resolve(__dirname, '../../public/screenshots', s.file))).toBe(true);
+  });
+
+  it('shows the pending panel when the manifest is empty', () => {
+    render(<Gallery items={[]} />);
     expect(screen.getByRole('status')).toHaveTextContent(
       'Screenshots from the current build arrive with the first test release',
     );

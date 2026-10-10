@@ -36,7 +36,7 @@ export function PrivacyPage() {
           <h3>What the game does not do</h3>
           <ul>
             <li>No user accounts, sign-in or online profiles.</li>
-            <li>No network connections of any kind. The game plays fully offline and does not contact any server.</li>
+            <li>No network connections of any kind. The game plays fully offline and does not contact any server. The two links on the Credits screen (this website and this policy) open in your browser only when you tap them.</li>
             <li>No analytics, telemetry or usage tracking.</li>
             <li>No advertising and no advertising identifiers.</li>
             <li>No crash reporting services.</li>
@@ -56,6 +56,13 @@ export function PrivacyPage() {
           <p>
             Sound and vibration feedback are generated locally on your device. The game does not use the microphone, camera,
             location, contacts or any other personal information.
+          </p>
+
+          <h3>Android permissions</h3>
+          <p>
+            The Android app declares vibration (haptic feedback), audio settings and wake lock (sound playback), plus internet
+            and network-state access, which the app framework includes by default. None of them shows a prompt, and the game
+            does not use network access. The iOS app requests no permissions.
           </p>
 
           <h2>This website</h2>

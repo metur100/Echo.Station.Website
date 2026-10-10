@@ -25,12 +25,61 @@ export interface Screenshot {
 }
 
 export const SCREENSHOTS: readonly Screenshot[] = [
-  // Example:
-  // {
-  //   file: 'reactor-bay.webp',
-  //   caption: 'Rerouting power around an unstable reactor',
-  //   alt: 'Isometric view of the ship with the reactor room glowing amber and a warning panel open',
-  //   width: 2340,
-  //   height: 1080,
-  // },
+  // Real captures of build 1.0.0 (Android, 1080 × 1920 scaled to 720 × 1280).
+  {
+    file: '01-ship.webp',
+    caption: 'The ESV Meridian, mid-campaign, with resources, objective and overlays',
+    alt: 'Isometric view of the ship with a glowing reactor, hydroponics and a quarantined storage bay, under a resource bar and objective card',
+    width: 720,
+    height: 1280,
+  },
+  {
+    file: '02-inspect.webp',
+    caption: 'Inspecting the Lumen Bloom: why it grows and which room is next',
+    alt: 'Module inspector for the hydroponics bay showing the Lumen Bloom intensity, growth reasons and the room at risk',
+    width: 720,
+    height: 1280,
+  },
+  {
+    file: '03-echo.webp',
+    caption: 'The Echo archive: what the ship remembers',
+    alt: 'List of echoes: residual energy around the reactor, structural fatigue in the airlock, and resonance',
+    width: 720,
+    height: 1280,
+  },
+  {
+    file: '04-build.webp',
+    caption: 'Placing a new room on the hull grid',
+    alt: 'Build placement with a highlighted hydroponics footprint and the Build here button',
+    width: 720,
+    height: 1280,
+  },
+  {
+    file: '05-crew.webp',
+    caption: 'Chief engineer Ines Varga: skills, traits and tasks',
+    alt: 'Crew detail screen with a portrait, health, morale and fatigue bars, skills and task buttons',
+    width: 720,
+    height: 1280,
+  },
+  {
+    file: '06-power.webp',
+    caption: 'Power overlay: what is powered and where the power flows',
+    alt: 'Ship rooms tinted by power state with animated power-flow lines from the reactor',
+    width: 720,
+    height: 1280,
+  },
+  {
+    file: '07-research.webp',
+    caption: 'Research tree with four branches',
+    alt: 'Engineering research tiers with completed projects marked',
+    width: 720,
+    height: 1280,
+  },
+  {
+    file: '08-map.webp',
+    caption: 'Expedition map: four destinations',
+    alt: 'Star chart with Kessler Drift, Glacier Shard, the Lantern and the Hollow Ark',
+    width: 720,
+    height: 1280,
+  },
 ];
