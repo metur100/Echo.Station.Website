@@ -1,6 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { existsSync } from 'node:fs';
-import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { Gallery } from '../components/sections/Gallery';
 import { SCREENSHOTS } from '../content/screenshots';
@@ -8,7 +6,9 @@ import { SCREENSHOTS } from '../content/screenshots';
 describe('screenshot gallery', () => {
   it('the shipped manifest lists real files that exist in public/screenshots', () => {
     expect(SCREENSHOTS.length).toBeGreaterThan(0);
-    for (const s of SCREENSHOTS) expect(existsSync(resolve(__dirname, '../../public/screenshots', s.file))).toBe(true);
+    // Vite lists the files in public/screenshots at build time (no Node APIs needed).
+    const files = Object.keys(import.meta.glob('../../public/screenshots/*', { query: '?url', import: 'default' })).map((f) => f.split('/').pop());
+    for (const s of SCREENSHOTS) expect(files).toContain(s.file);
   });
 
   it('shows the pending panel when the manifest is empty', () => {
