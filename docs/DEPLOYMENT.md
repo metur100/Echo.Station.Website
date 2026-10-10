@@ -38,6 +38,18 @@ curl -X PUT  -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.githu
 
 Equivalent in the UI: Settings -> Pages -> Build and deployment -> Source: **GitHub Actions**.
 
+Because Pages was enabled while the repository was still empty, GitHub created the `github-pages` environment with a
+deployment branch policy for `master` only, and the first deploy was rejected ("Branch main is not allowed to deploy").
+The fix was to allow `main`:
+
+```bash
+curl -X POST -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" \
+  https://api.github.com/repos/metur100/Echo.Station.Website/environments/github-pages/deployment-branch-policies \
+  -d '{"name":"main","type":"branch"}'
+```
+
+(UI: Settings -> Environments -> github-pages -> Deployment branches and tags.)
+
 ## Base path
 
 The site lives under `/Echo.Station.Website/`, so `vite.config.ts` sets `base` to that path (`BASE_PATH`). All internal
